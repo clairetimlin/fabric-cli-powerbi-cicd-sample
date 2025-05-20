@@ -1,11 +1,11 @@
 [![bpa](https://github.com/RuiRomano/demos-cicd-salessense/actions/workflows/bpa.yml/badge.svg)](https://github.com/RuiRomano/demos-cicd-salessense/actions/workflows/bpa.yml) [![deploy](https://github.com/RuiRomano/demos-cicd-salessense/actions/workflows/deploy.yml/badge.svg)](https://github.com/RuiRomano/demos-cicd-salessense/actions/workflows/deploy.yml)
 
 
-This repository demonstrates a Fabric CI/CD scenario using [fabric-cli](https://aka.ms/fabric-cli) and GitHub. It can be easily adapted to other use cases.  
+This repository demonstrates a Fabric CI/CD (continuous, hence on every commit, integration, meaning building and testing / continuous deployment, meaning publishing the code - note most set ups you make a conscious choice to publish to productions) scenario using [fabric-cli](https://aka.ms/fabric-cli) -- tool for communicating with MS fabric via the command line -- and GitHub. It can be easily adapted to other use cases.  
 
 - Fabric items source code is located in the [/src](/src/) folder.  
 - Developers should work in isolation within a feature branch.  
-- Pull requests to the main branch trigger a best practices analysis pipeline, [bpa.yml](./.github/workflows/bpa.yml), for both semantic models and reports. This process leverages community tools such as [Tabular Editor](https://github.com/TabularEditor/) and [PBI-Inspector](https://github.com/NatVanG/PBI-InspectorV2).  
+- Pull requests (e.g. if I develop a bug fix in my repo, I can request those changes be merged into the upstream repo) to the main branch trigger a best practices analysis pipeline, [bpa.yml](./.github/workflows/bpa.yml), for both semantic models and reports. This process leverages community tools such as [Tabular Editor](https://github.com/TabularEditor/) and [PBI-Inspector](https://github.com/NatVanG/PBI-InspectorV2).   
 - Upon a successful merge into the main branch, the deployment pipeline, [deploy.yml](./.github/workflows/deploy.yml), is triggered to ensure automated deployment to the `development` environment.  
 - The deployment pipeline, [deploy.yml](./.github/workflows/deploy.yml), also runs daily on a scheduled trigger to deploy to the `production` environment.
 
